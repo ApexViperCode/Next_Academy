@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>X O Game</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+
+    .section-title {
+      color: #a855f7;
+      border-bottom: 2px solid #3b0764;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+
+    /* حاوية الكود */
+    pre {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #30363d;
+      direction: ltr; /* لعرض الكود من اليسار لليمين بشكل صحيح */
+      text-align: left;
+    }
+
+    /* نافذة المعاينة / التشغيل للـ HTML & CSS */
+    .preview-box {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 10px;
+      direction: rtl;
+    }
+  </style>
+</head>
+<body>
+
+
+  <h2 class="section-title">💻 C++ Code</h2>
+  <pre><code class="language-cpp" id="cpp-code"></code></pre>
+
+
+
+  <script>
+
+    const cppText = `#include &lt;iostream&gt;
+#include  &lt;windows.h&gt;
+using namespace std;
+
+char matrix[3][3] =
+{
+    {'1','2','3'},
+    {'4','5','6'},
+    {'7','8','9'}
+};
+
+char player = 'X';
+
+void draw()
+{
+    system("cls");
+    
+    cout << "-------------\n";
+
+    for (int r = 0; r < 3; r++)
+    {
+        cout << "| ";
+
+        for (int c = 0; c < 3; c++)
+        {
+            cout << matrix[r][c] << " | ";
+        }
+
+        cout << endl;
+        cout << "-------------\n";
+    }
+}
+
+void read()
+{
+    char pos;
+
+    cout << "Enter position (" << player << "): ";
+    cin >> pos;
+
+    for (int r = 0; r < 3; r++)
+    {
+        for (int c = 0; c < 3; c++)
+        {
+            if (matrix[r][c] == pos)
+            {
+                matrix[r][c] = player;
+            }
+        }
+    }
+
+    if (player == 'X')
+        player = 'O';
+    else
+        player = 'X';
+}
+
+char checkwinner()
+{
+ 
+    for (int r = 0; r < 3; r++)
+    {
+        if (matrix[r][0] == matrix[r][1] &&
+            matrix[r][1] == matrix[r][2])
+        {
+            return matrix[r][0];
+        }
+    }
+
+    for (int c = 0; c < 3; c++)
+    {
+        if (matrix[0][c] == matrix[1][c] &&
+            matrix[1][c] == matrix[2][c])
+        {
+            return matrix[0][c];
+        }
+    }
+
+
+    if (matrix[0][0] == matrix[1][1] &&
+        matrix[1][1] == matrix[2][2])
+    {
+        return matrix[0][0];
+    }
+
+    if (matrix[0][2] == matrix[1][1] &&
+        matrix[1][1] == matrix[2][0])
+    {
+        return matrix[0][2];
+    }
+
+
+    int counter = 0;
+
+    for (int r = 0; r < 3; r++)
+    {
+        for (int c = 0; c < 3; c++)
+        {
+            if (matrix[r][c] != 'X' &&
+                matrix[r][c] != 'O')
+            {
+                counter++;
+
+
+                
+            }
+        }
+    }
+
+    if (counter == 0)
+        return '=';
+
+    return '*';
+}
+
+int main()
+{
+    while (checkwinner() == '*')
+    {
+        draw();
+        read();
+    }
+
+    draw();
+
+    if (checkwinner() == 'X')
+        cout << "\nWinner is player X\n";
+
+    else if (checkwinner() == 'O')
+        cout << "\nWinner is player O\n";
+
+    else
+        cout << "\nNo winner\n";
+
+        return 0;
+
+}`;
+
+
+    document.getElementById("cpp-code").textContent = cppText;
+  
+
+
+    hljs.highlightAll();
+  </script>
+</body>
+</html>
+

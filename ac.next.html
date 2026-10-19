@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ac.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Next academy</title>
+</head>
+<body>
+
+
+
+  <header class="iconss">
+    <nav>
+        <a href="#" class="logo"><span> Next </span>academy </a>
+        <br>
+          <i class="fa-light fa-brightness-low"></i>
+         <ul class="links">
+            <li class="active"><a href="#">Explanation of academia</a></li>
+            <li><a href="studyc++.html">Study C++</a></li>
+            <li><a href="e.html">Example request Mastery</a></li>
+            <li><a href="a.html">Practical application</a></li>
+            <li><a href="p.html">Projects</a></li>
+            <li><a href="d.html">Demande d'inscription</a></li>
+         
+         </ul>
+         <br>
+         <br>
+         
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <div class="social-link">
+           
+                 <a href= "https://github.com/ApexViperCode"> <i class="fa-solid fa-brightness-low" style="color: rgb(255, 255, 255);"></i></a>
+             <a href="https://orcid.org/0009-0004-6300-5850"><i class="fa-brands fa-orcid"></i><a>
+              <a href="https://x.com/AVCRAMANHESE"><i class="fa-brands fa-x-twitter"></i></a>
+         </div>
+    </nav>
+  </header>
+
+
+  <div class="contaner">
+    <br>
+    <br>
+    <center>
+    <a href="#" class="l"><span> Next </span>academy </a>
+    </center>
+    <br>
+    <br> 
+    <center>
+    <img class="logo-image" src="logo.ac.jpg" alt="">
+    </center>
+    <br>
+    <br>
+
+
+    <center>
+    <p><i>Are you looking for your first step into the world of coding and professional software development? Next Academy is your perfect destination to start from scratch all the way to mastery.
+We are an academy specialized in teaching programming, with a primary focus on C++—one of the most powerful and essential programming languages in the world, serving as the core engine behind games, smart systems, and complex applications.
+At Next Academy, we don’t just offer dry lectures. Instead, we guide you through an interactive learning journey built on practical application and real-world projects. Our curricula are meticulously designed to suit both beginners and advanced learners, all under the supervision of elite, expert instructors who are passionate about your success.
+We believe that learning C++ gives you a deep understanding of how computers actually work, making it easier for you to seize the strongest career opportunities in the tech job market.
+Join us today at Next Academy, and make it your next step toward building a promising and exceptional digital future. Your path to professionalism starts here!</i></p></center>
+
+    <br>
+    <br>
+    <br>
+    <h1 class="h">After learing C++ what will you learn Next :</h1>
+    <p><i>After your distinguished journey at Next Academy and mastering C++, you will have built a solid, ironclad programming foundation that sets you apart from the crowd. But what comes next?
+        <br>
+        
+This is where your real breakthrough begins! You will transition with us to learn how to leverage this power in highly in-demand career paths in the job market:
+<br>
+• Game Development: Utilizing the world-renowned Unreal Engine.
+<br>
+• Embedded Systems Programming: Controlling robotics, smart devices, and the Internet of Things (IoT).
+<br>
+• Data Structures and Algorithms (DSA): To ace technical interviews at top global tech companies.
+<br>
+With Next Academy, you won't just stop at coding. We will empower you to transform your skills into real-world projects, opening the doors to a future of smart opportunities and confidence.</i></p>
+    <br>
+    <br>
+
+    <p><i></i></p>
+  </div>
+
+  
+
+ 
+ 
+  <div>
+ <canvas id="particles-canvas"></canvas>
+   <div  class="main-container">
+   <center>
+</div>
+
+  <script>
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+
+let particlesArray = [];
+const numberOfParticles = 80; 
+
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1; 
+        this.speedX = (Math.random() - 0.5) * 1.2;
+        this.speedY = (Math.random() - 0.5) * 1.2; 
+        this.color = '#1054ff'; 
+    }
+
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+        if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+    }
+
+    draw() {
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#a855f7'; 
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+
+function init() {
+    particlesArray = [];
+    for (let i = 0; i < numberOfParticles; i++) {
+        particlesArray.push(new Particle());
+    }
+}
+
+
+function connect() {
+    let maxDistance = 120; 
+    for (let a = 0; a < particlesArray.length; a++) {
+        for (let b = a; b < particlesArray.length; b++) {
+            let dx = particlesArray[a].x - particlesArray[b].x;
+            let dy = particlesArray[a].y - particlesArray[b].y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < maxDistance) {
+              
+                let opacity = 1 - (distance / maxDistance);
+                ctx.strokeStyle = `rgba(168, 85, 247, ${opacity * 0.4})`;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+    }
+    connect();
+    requestAnimationFrame(animate);
+}
+
+init();
+animate();
+
+
+
+   </script>
+   
+</body>
+</html>

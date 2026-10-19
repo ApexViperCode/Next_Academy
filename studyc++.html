@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="acg.css">
+    <link rel="stylesheet" href="sc.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Next academy</title>
+</head>
+<body>
+
+
+
+  <header class="iconss">
+    <nav>
+        <a href="#" class="logo"><span> Next </span>academy </a>
+        <br>
+
+         <ul class="links">
+            <li class="active"><a href="ac.next.html">Explanation of academia</a></li>
+            <li><a href="#">Study C++</a></li>
+            <li><a href="e.html">Example request Mastery</a></li>
+            <li><a href="a.html">Practical application</a></li>
+            <li><a href="p.html">Projects</a></li>
+            <li><a href="d.html">Demande d'inscription</a></li>
+         
+         </ul>
+         <br>
+         <br>
+         <br>
+         <br>
+
+         <br>
+         <br>
+        
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <div class="social-link">
+                 <a href= "https://github.com/ApexViperCode"><i class="fa-brands fa-github"></i></a>
+             <a href="https://orcid.org/0009-0004-6300-5850"><i class="fa-brands fa-orcid"></i><a>
+              <a href="https://x.com/AVCRAMANHESE"><i class="fa-brands fa-x-twitter"></i></a>
+         </div>
+    </nav>
+  </header>
+  <body>
+    <div class="contaner">
+       <br>
+    <br>
+    <center>
+    <a href="https://en.wikipedia.org/wiki/C%2B%2B" class="l"><span> Study </span>C++ </a>
+    </center>
+    </div>
+
+
+
+
+    
+  <div>
+ <canvas id="particles-canvas"></canvas>
+   <div  class="main-container">
+   <center>
+</div>
+     <center>
+
+
+</center>
+  <script>
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+
+let particlesArray = [];
+const numberOfParticles = 80; 
+
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1; 
+        this.speedX = (Math.random() - 0.5) * 1.2;
+        this.speedY = (Math.random() - 0.5) * 1.2; 
+        this.color = '#1054ff'; 
+    }
+
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+        if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+    }
+
+    draw() {
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#a855f7'; 
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+
+function init() {
+    particlesArray = [];
+    for (let i = 0; i < numberOfParticles; i++) {
+        particlesArray.push(new Particle());
+    }
+}
+
+
+function connect() {
+    let maxDistance = 120; 
+    for (let a = 0; a < particlesArray.length; a++) {
+        for (let b = a; b < particlesArray.length; b++) {
+            let dx = particlesArray[a].x - particlesArray[b].x;
+            let dy = particlesArray[a].y - particlesArray[b].y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < maxDistance) {
+              
+                let opacity = 1 - (distance / maxDistance);
+                ctx.strokeStyle = `rgba(168, 85, 247, ${opacity * 0.4})`;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+    }
+    connect();
+    requestAnimationFrame(animate);
+}
+
+init();
+animate();
+
+
+
+   </script>
+   <div class="container">
+      
+        
+        <div id="resultsContainer" class="results-grid"></div>
+    </div>
+
+    <script>
+        
+        const cppExamples = [
+             {
+        keyword: "variables",
+        title: " Variables & Data Types",
+        description: "Basic variable declarations such as integers, floats, characters, and strings.",
+        code: `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    int age = 15;\n    double price = 19.99;\n    char grade = 'A';\n    string name = "Raman";\n    bool isCoding = true;\n\n    cout << name << " is " << age << " years old." << endl;\n    return 0;\n}`
+    },
+    {
+        keyword: "cin cout",
+        title: " Input and Output (cin / cout)",
+        description: "How to print data and read input from the user using the console.",
+        code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int num;\n    cout << "Enter a number: ";\n    cin >> num;\n    cout << "You entered: " << num << endl;\n    return 0;\n}`
+    },
+    {
+        keyword: "if else",
+        title: "If / Else Statements",
+        description: "Making decisions and directing the program path based on a condition.",
+        code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int score = 85;\n    if (score >= 50) {\n        cout << "Passed" << endl;\n    } else {\n        cout << "Failed" << endl;\n    }\n    return 0;\n}`
+    },
+    {
+        keyword: "switch",
+        title: "Switch Case Statement",
+        description: "Useful for choosing between multiple specific predefined cases instead of nested if statements.",
+        code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int day = 1;\n    switch(day) {\n        case 1: cout << "Sunday"; break;\n        case 2: cout << "Monday"; break;\n        default: cout << "Another day";\n    }\n    return 0;\n}`
+    },
+    {
+        keyword: "while",
+        title: " While Loop",
+        description: "Repeating code as long as a specified condition evaluates to True.",
+        code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int i = 1;\n    while (i <= 3) {\n        cout << "Iteration " << i << endl;\n        i++;\n    }\n    return 0;\n}`
+    },
+    {
+        keyword: "do while",
+        title: " Do-While Loop",
+        description: "Executing the code block at least once before checking the condition.",
+        code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int x = 10;\n    do {\n        cout << "This will print at least once" << endl;\n    } while (x < 5);\n    return 0;\n}`
+    },
+    {
+        keyword: "array",
+        title: " 1D Arrays",
+        description: "Storing multiple elements of the same data type in a sequential memory block.",
+        code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int scores[3] = {90, 85, 95};\n    cout << "First element: " << scores[0] << endl;\n    return 0;\n}`
+    },
+    {
+        keyword: "2d array",
+        title: " 2D Arrays",
+        description: "A table-like matrix defined by rows and columns.",
+        code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int matrix[2][2] = {\n        {1, 2},\n        {3, 4}\n    };\n    cout << "Element at row 0, col 1: " << matrix[0][1] << endl;\n    return 0;\n}`
+    },
+    {
+        keyword: "function",
+        title: " Basic Functions",
+        description: "Writing modular, reusable code blocks to organize your program.",
+        code: `#include <iostream>\nusing namespace std;\n\nvoid sayHello() {\n    cout << "Welcome to C++!" << endl;\n}\n\nint main() {\n    sayHello();\n    return 0;\n}`
+    },
+    {
+        keyword: "return function",
+        title: " Function with Return Value",
+        description: "A function that computes a result and returns it using the return keyword.",
+        code: `#include <iostream>\nusing namespace std;\n\nint add(int a, int b) {\n    return a + b;\n}\n\nint main() {\n    int result = add(5, 7);\n    cout << "Sum: " << result << endl;\n    return 0;\n}`
+    },
+    {
+        keyword: "struct",
+        title: " Structures (Struct)",
+        description: "Grouping different types of variables under a single custom structure name.",
+        code: `#include <iostream>\nusing namespace std;\n\nstruct Person {\n    string name;\n    int age;\n};\n\nint main() {\n    Person p1 = {"Raman", 15};\n    cout << p1.name << " - " << p1.age << endl;\n    return 0;\n}`
+    },
+    {
+        keyword: "pointer",
+        title: " Pointers",
+        description: "Variables that store the memory address of another variable.",
+        code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int num = 42;\n    int* ptr = &num;\n\n    cout << "Value: " << *ptr << endl;\n    cout << "Memory Address: " << ptr << endl;\n    return 0;\n}`
+    },
+    {
+        keyword: "reference",
+        title: " References",
+        description: "Creating an alias for an existing variable in memory.",
+        code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int original = 100;\n    int &ref = original;\n\n    ref = 200;\n    cout << "Original value changed to: " << original << endl;\n    return 0;\n}`
+    },
+    {
+        keyword: "string methods",
+        title: " String Manipulation",
+        description: "Using built-in functions like finding string length and accessing characters.",
+        code: `#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string text = "Cyberpunk";\n    cout << "Length: " << text.length() << endl;\n    cout << "First character: " << text[0] << endl;\n    return 0;\n}`
+    },
+    {
+        keyword: "class oop",
+        title: " Classes & Objects (OOP)",
+        description: "The foundation of Object-Oriented Programming to represent properties and behaviors.",
+        code: `#include <iostream>\nusing namespace std;\n\nclass Car {\npublic:\n    string brand;\n    void drive() {\n        cout << "Car is driving..." << endl;\n    }\n};\n\nint main() {\n    Car myCar;\n    myCar.brand = "BMW";\n    myCar.drive();\n    return 0;\n}`
+    },
+    {
+        keyword: "constructor",
+        title: " Constructor",
+        description: "A special member function executed automatically when an object is created to initialize values.",
+        code: `#include <iostream>\nusing namespace std;\n\nclass Student {\npublic:\n    string name;\n    Student(string n) {\n        name = n;\n    }\n};\n\nint main() {\n    Student s1("Raman");\n    cout << s1.name << endl;\n    return 0;\n}`
+    },
+    {
+        keyword: "inheritance",
+        title: " Inheritance",
+        description: "Passing properties and functions from a parent class to a child class.",
+        code: `#include <iostream>\nusing namespace std;\n\nclass Animal {\npublic:\n    void eat() { cout << "Eating..." << endl; }\n};\n\nclass Dog : public Animal {};\n\nint main() {\n    Dog d;\n    d.eat();\n    return 0;\n}`
+    },
+    {
+        keyword: "vector",
+        title: " Dynamic Vectors (Vector)",
+        description: "A dynamic array that can change size and add elements at runtime.",
+        code: `#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    vector<int> nums = {10, 20};\n    nums.push_back(30);\n\n    for(int n : nums) {\n        cout << n << " ";\n    }\n    return 0;\n}`
+    },
+    {
+        keyword: "ternary operator",
+        title: " Ternary Operator",
+        description: "Writing a simple if-else statement in a single line.",
+        code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int age = 18;\n    string status = (age >= 18) ? "Adult" : "Minor";\n    cout << status << endl;\n    return 0;\n}`
+    },
+             {
+               keyword: "switch",
+        title: " Switch Case",
+        description: "Used to reduce the use of multiple ifs and to select one state from several states.",
+        code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int day = 2;\n    switch(day) {\n        case   1:     cout << "Saturday"; break;\n        case 2: cout << "Sunday"; break;\n        default: cout << "Another day";\n    }\n    return 0;\n}`
+            },
+             {
+                keyword: "Cin >>",
+                title: " Cin >>",
+                description: "Used to repeatedly execute a block of software a specified number of times.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n  int i; \n  cout << "inter a number:"<< endl;\n  cin >> i; \n  cout <<"The number is" << i << endl ;\n  return 0;\n}`
+            },
+             {
+        keyword: "pointer",
+        title: " Pointers",
+        description: "Special variables are used to store the memory address of another variable.",
+        code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int x = 10;\n    int* ptr = &x;\n    cout << "value x: " << x << endl;\n    cout << "address x in Memory: " << ptr << endl;\n    return 0;\n}`
+        },
+             {
+                keyword: "for",
+                title: " For Loop",
+                description: "Used to repeatedly execute a block of software a specified number of times.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    for(int i = 1; i <= 5; i++) {\n        cout << "Number: " << i << endl;\n    }\n    return 0;\n}`
+            },
+            {
+                keyword: "if",
+                title: "  If Statement",
+                description: "Used to make a decision and execute a specific code if a specific condition is met.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int grade = 85;\n    if(grade >= 50) {\n        cout << "successful!" << endl;\n    } else {\n        cout << "Failed!" << endl;\n    }\n    return 0;\n}`
+            },
+            {
+                keyword: "while",
+                title: "  While Loop",
+                description: "The code will be executed repeatedly as long as the written condition holds true (True).",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int count = 1;\n    while(count <= 3) {\n        cout << "counter: " << count << endl;\n        count++;\n    }\n    return 0;\n}`
+            },
+            {
+                keyword: "array",
+                title: " Arrays",
+                description: "It is used to store a set of values ​​of the same type in a single variable.",
+                code: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int numbers[3] = {10, 20, 30};\n    cout << "First item: " << numbers[0] << endl;\n    return 0;\n}`
+            }
+            
+      
+        ];
+
+        const searchInput = document.getElementById('searchInput');
+        const resultsContainer = document.getElementById('resultsContainer');
+
+     
+        function displayExamples(examplesToDisplay) {
+            resultsContainer.innerHTML = ""; 
+            
+            if (examplesToDisplay.length === 0) {
+                resultsContainer.innerHTML = `<p style="text-align: center; color: #94a3b8;">No matching example was found...</p>`;
+                return;
+            }
+
+            examplesToDisplay.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.innerHTML = `
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                    <pre><code>${item.code}</code></pre>
+                `;
+                resultsContainer.appendChild(card);
+            });
+        }
+
+        
+        displayExamples(cppExamples);
+
+        
+        searchInput.addEventListener('input', (e) => {
+            const searchText = e.target.value.toLowerCase().trim();
+            
+            const filtered = cppExamples.filter(item => 
+                item.keyword.toLowerCase().includes(searchText) ||
+                item.title.toLowerCase().includes(searchText) ||
+                item.description.toLowerCase().includes(searchText)
+            );
+            
+            displayExamples(filtered);
+        });
+    </script>
+
+
+
+  </body>
+  <html>

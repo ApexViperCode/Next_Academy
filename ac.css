@@ -1,0 +1,162 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+
+body{
+    height: 100vh;
+  margin-left: 0px;
+  padding: 0px;
+
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(to top, #032681, #000000);
+
+  background-attachment: fixed;
+
+  color: #ffffff;
+  font-family: sans-serif;
+  overscroll-behavior: none;
+  background-color: #12171e;
+}
+
+  #particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none; 
+}
+
+.contaner{
+    margin-left: 230px;
+    padding: 20px;
+}
+.iconss{
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+}
+header{
+position: fixed;
+background: #000000;
+top: 0;
+left: 0;
+bottom: 0;
+width: 240px;
+height: 100vh;
+border-right: 1px solid #afafaf93;
+
+}
+header nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 85%;
+    margin: 20px auto;
+    height: 100%;
+}
+header nav .logo{
+    color: white;
+    font-size: 30px;
+    font-weight: bolder;
+
+}
+header nav .logo span{
+    
+    color: #085ad6;
+}
+header nav .links{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+}
+header nav .links li{
+    position: relative;
+    margin: 15px 0;
+    height: 40px;
+    line-height: 40px;
+    width: fit-content;
+}
+header nav .links li::after{
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #085ad6;
+    transition: 0.3s;
+}
+header nav .links li:hover::after
+{
+width: 100%;
+}
+header nav .links li.active::after
+{
+    width: 100%;
+}
+ 
+header nav .links li a{
+    color: #c8c6c6;
+    font-size: 17px;
+}
+ 
+header nav .social-link a i{
+ color: #085ad6;
+ font-size: 24px;
+ margin: 15px;
+}
+header nav .social-link a i:hover{
+    color: #fff;
+}
+ul li{
+  list-style: none;
+}
+.l{
+    margin-top: 500px;
+   color: white;
+    font-size: 50px;
+    font-weight: bolder;
+}
+.l span{
+    color: #085ad6;
+        text-align: center;
+    color: #085ad6;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+    margin-bottom: 30px;
+}
+.logo-image{
+    
+
+ width: 45%;
+ height: 45%;
+ }
+.logo-image-contaner{
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+
+}
+.h{
+    color: rgb(144, 144, 213);
+}
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+h1 {
+    text-align: center;
+    color: #38bdf8;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+    margin-bottom: 30px;
+}

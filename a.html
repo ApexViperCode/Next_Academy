@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="acg.css">
+    <link rel="stylesheet" href="a.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Next academy</title>
+    <style>
+        body{
+        background-color: #0e0d17;
+      color: #c9d1d9;
+      font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+    
+    .section{
+
+       text-align: left;
+        background: #3e3a41;
+        height: 650px;
+        width: 1200px;
+        color: white;
+        
+    }
+    .section-title {
+      color: #a855f7;
+      border-bottom: 2px solid #3b0764;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+    .proton{
+        padding-right: 999px;
+         text-align: center;
+       align-items: center;
+       justify-content: center;
+    }
+
+
+    pre {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #30363d;
+      direction: ltr;
+      text-align: left;
+    }
+
+    
+    .preview-box {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 10px;
+      direction: rtl;
+    }
+     .btn{
+         display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            overflow: hidden;
+            transform: scale(1.5);
+
+
+            padding: 15px 40px;
+            border: none;
+            outline: none;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            z-index: 12px;
+            border-radius: 12px;
+
+
+        }
+        .byn::after{
+            content: "";
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #333333;
+            left: 0;
+            top:0;
+            border-radius: 10px;
+        }
+          #particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  z-index: -1;
+  pointer-events: none; 
+}
+        .btn::before{
+          content: "";
+          background: linear-gradient(45deg,#002bff,#8c24ee,#128cf7);
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          background-size: 600%;
+          z-index: -1;
+          width: calc(100% + 4px);
+          height: calc(100% + 4px);
+          filter: blur(8px);
+          animation: glowing 20s linear infinite;
+          transition: opacity .3s ease-in-out;
+          border-radius: 10px;
+          opacity: 1;
+        }
+
+        @keyframes glowing{
+            0% {background-position: 0 0;}
+            50% {background-position: 400% 0;}
+            100% {background-position: 0 0;}
+        }
+       
+        .btn:hover::before{
+            opacity: 1;
+
+        }
+        .btn:active:after{
+          background: transparent;
+        }
+        .btn:active{
+            color: #000;
+              font-weight: bold;
+        }
+        fa-solid fa-circle-left{
+            padding-left: 100px;
+        }
+        #editor{
+            width: 100%;
+            height: 400px;
+            font-size: 16px;
+        }
+        
+  </style>
+  <header class="iconss">
+
+    <nav>
+
+        <a href="#" class="logo"><span> Next </span>academy </a>
+        <br>
+
+         <ul class="links">
+            <li class="active"><a href="ac.next.html">Explanation of academia</a></li>
+            <li><a href="studyc++.html">Study C++</a></li>
+            <li><a href="e.html">Example request Mastery</a></li>
+            <li><a href="#">Practical application</a></li>
+            <li><a href="p.html">Projects</a></li>
+            <li><a href="d.html">Demande d'inscription</a></li>
+         </ul>
+         <br>
+         <br>
+         <br>
+         <br>
+<br>
+<br>
+         <br>
+         <br>
+         <br>
+      
+         <br>
+         <br>
+         <br>
+         <br>
+         <div class="social-link">
+                 <a href= "https://github.com/ApexViperCode"><i class="fa-brands fa-github"></i></a>
+             <a href="https://orcid.org/0009-0004-6300-5850"><i class="fa-brands fa-orcid"></i><a>
+              <a href="https://x.com/AVCRAMANHESE"><i class="fa-brands fa-x-twitter"></i></a>
+         </div>
+    </nav>
+  </header>
+
+
+  
+
+
+
+    
+  
+   
+
+     </div>
+
+     <div>
+  
+
+     
+      
+    </div>
+
+</head>
+<body>
+
+ <div class="proton">
+    <center>
+    <textarea class="section" spellcheck="false"; name="" id="inp" rows="8" cols="60" Default Value="">
+
+#include <iostream>
+using namespace std;
+int main()
+{
+  cout <<"Hello World";
+}
+    </textarea>
+  <div>
+ <canvas id="particles-canvas"></canvas>
+   <div  class="main-container">
+    
+    
+</div>
+
+
+
+
+  <script>
+    
+   function getImage(){
+    const userText=document.getElementById("cpp-code");
+    codeElement.textContent=userText;
+
+  
+
+
+    hljs.highlightAll();
+     }
+
+
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+
+let particlesArray = [];
+const numberOfParticles = 80; 
+
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1; 
+        this.speedX = (Math.random() - 0.5) * 1.2;
+        this.speedY = (Math.random() - 0.5) * 1.2; 
+        this.color = '#1054ff'; 
+    }
+
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+        if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+    }
+
+    draw() {
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#a855f7'; 
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+
+function init() {
+    particlesArray = [];
+    for (let i = 0; i < numberOfParticles; i++) {
+        particlesArray.push(new Particle());
+    }
+}
+
+
+function connect() {
+    let maxDistance = 120; 
+    for (let a = 0; a < particlesArray.length; a++) {
+        for (let b = a; b < particlesArray.length; b++) {
+            let dx = particlesArray[a].x - particlesArray[b].x;
+            let dy = particlesArray[a].y - particlesArray[b].y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < maxDistance) {
+              
+                let opacity = 1 - (distance / maxDistance);
+                ctx.strokeStyle = `rgba(168, 85, 247, ${opacity * 0.4})`;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+    }
+    connect();
+    requestAnimationFrame(animate);
+}
+
+init();
+animate();
+
+
+
+   </script>
+
+  
+</body>
+</html>
